@@ -1,0 +1,41 @@
+<a class="btn btn-primary btn-lg" routerLink="/books/listbooks">
+  <i class="fa fa-arrow-left"></i> Back</a>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h2>
+            View Product
+          </h2>
+        </div>
+        <div class="card-body">
+              <label>Product ID:</label>
+             {{data.p_id}}
+
+            <br>
+
+              <label>Product Name:</label>
+              {{data.p_name}}
+            <br>
+
+              <label>Product image:</label>
+              <img width="30" height="30" [src]="imgurl? imgurl : data.image" alt="Image">
+            <br>
+
+              <label>Product Cost:</label>
+              {{data.p_cost}}
+            <br>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+  </div>
+
+</div>

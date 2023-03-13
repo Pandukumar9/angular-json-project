@@ -1,0 +1,59 @@
+<a class="btn btn-primary btn-lg" routerLink="/books/listbooks">
+  <i class="fa fa-arrow-left"></i> Back</a>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h2>
+            Update Product
+          </h2>
+        </div>
+        <div class="card-body">
+          <form id="formNewProduct" name='formNewProduct' [formGroup]="productData">
+            <div class="form-group">
+              <label>Product ID:</label>
+              <input class="form-control" type="number" name="p_id" formControlName="productid" id="p_id" placeholder="p_id">
+            </div>
+
+            <br>
+
+            <div class="form-group">
+              <label>Product Name:</label>
+              <input class="form-control" type="text" name="p_name" formControlName="productname" id="p_name" placeholder="p_name">
+            </div>
+            <br>
+
+            <div class="form-group">
+              <label>Product image:</label>
+              <!-- <input type="file" (change)="fileChange($event)" type="file" #uploadfile /> -->
+              <input type="file" formControlName="productimage" (change)="onFileSelected($event)" >
+
+              <img width="30" height="30" [src]="imgurl? imgurl : data.image" alt="Image">
+              <!-- <button class="btn btn-success btn-sm"  (click)="upload()">
+                Upload
+              </button> -->
+            </div>
+            <br>
+
+            <div class="form-group">
+              <label>Product Cost:</label>
+              <input class="form-control" type="number" name="p_cost" formControlName="productnum" placeholder="ProductCost">
+            </div>
+            <br>
+
+            <input class="btn btn-warning text-center" type="submit" value="Update Product" (click)="updateProducts()">
+          </form>
+          <h3 class="text-warning" *ngIf="isUpdated">{{confirmationString}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+  </div>
+
+</div>

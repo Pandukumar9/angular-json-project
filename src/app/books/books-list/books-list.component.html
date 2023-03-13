@@ -1,0 +1,57 @@
+<a class="btn btn-warning btn-md"  routerLink="/books/addbook" routerLinkActive="active">
+  <i class="fa fa-plus"></i> Add New Product</a>
+
+<div class="p-1">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header btn-#00e676 green accent-3 text-white">
+            <h2 class="card-title">
+              <i class="fa fa-product-hunt" aria-hidden="true"></i> Products</h2>
+              <input matInput [(ngModel)]="searchText">
+          </div>
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead class="blue-grey lighten-4 text-center">
+                <tr>
+                  <th>ID</th>
+                  <th>Book ID</th>
+                  <th>Book Name</th>
+                  <th>Book Cost</th>
+                  <th>Book Image</th>
+                  <th colspan="3">Auctions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of products | sortby : order : reverse " class="text-center">
+                  <td>{{product.id}}</td>
+                  <td>{{product.p_id}}</td>
+                  <td>{{product.p_name}}</td>
+                  <td>{{product.p_cost}}</td>
+                  <td><img width="30" height="30" [src]="product.image" alt="Image"></td>
+                  <td>
+
+                    <a class="btn btn-danger btn-sm" (click)="deleteProduct(product.id)">Delete</a>
+
+                  </td>
+                  <td>
+                    <a class="btn btn-outline-warning btn-sm" [routerLink]="['/books/editbook', product.id]">Update</a>
+
+                  </td>
+                  <td>
+                    <a class="btn btn-outline-success btn-sm" [routerLink]="['/books/bookdetail', product.id]">view</a>
+
+                  </td>
+                </tr>
+              </tbody>
+              <ul class="pagination">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </ul>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

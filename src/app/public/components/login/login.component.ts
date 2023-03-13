@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('user', JSON.stringify(user));
         this.loginForm.reset();
         $('.form-box').css('display','none');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/books/listbooks']);
       }else{
         this.snackbar.open('Account does not exist','ok');
         this.router.navigate(['login']);
